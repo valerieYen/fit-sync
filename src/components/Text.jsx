@@ -1,6 +1,6 @@
 function Text() {
   return (
-    <div className="Text">
+    <div className="Text SubPage">
         <p>I'M IN YOUR WALLS</p>
         <p>I'M IN YOUR WALLS</p>
         <p>I'M IN YOUR WALLS</p>

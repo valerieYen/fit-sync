@@ -72,11 +72,19 @@ body,html {
   width: 100%;
   height: 880px;
   margin-top: 5rem;
-  overflow-y: hidden;
+  overflow-y: scroll;
+}
+
+.SubPage {
+  height: 880px;
 }
 
 .LowerRight {
   display: flex;
-  justify-content: right;
   flex-direction: column;
+  text-align: right;
+}
+
+.Spacer {
+  flex-grow: 1;
 }

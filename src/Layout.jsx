@@ -10,7 +10,7 @@ const Layout = () => {
             <h1>Text</h1>
           </Link>
           <Link to="/lower-right" className="Link">
-            <h1>Lower Right</h1>
+            <h1>LR</h1>
           </Link>
         </nav>
       </div>
