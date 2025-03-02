@@ -1,6 +1,6 @@
 function LowerRight() {
     return(
-        <div>
+        <div className="LowerRight">
             <p>Down Here</p>
         </div>
     );
