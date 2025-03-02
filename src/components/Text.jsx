@@ -1,6 +1,7 @@
 function Text() {
   return (
     <div className="Text SubPage">
+      <h1>-Text Screen-</h1>
         <p>I'M IN YOUR WALLS</p>
         <p>I'M IN YOUR WALLS</p>
         <p>I'M IN YOUR WALLS</p>
