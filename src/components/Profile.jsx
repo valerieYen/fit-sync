@@ -4,7 +4,7 @@ function Profile() {
             <div className="Spacer"></div>
             
             <h1>-User Profile-</h1>
-            <img alt="Profile pic"></img>
+            <img alt="Profile pic" src="buff_kitty.jpg"></img>
             <h3>Smiley J. Smile</h3>
 
             <div>

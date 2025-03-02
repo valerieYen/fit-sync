@@ -3,6 +3,7 @@ import Layout from './Layout';
 import Text from './components/Text';
 import LowerRight from './components/LowerRight'
 import Colors from './components/Colors';
+import Profile from './components/Profile';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route index element={<Text />} />
           <Route path="/lower-right" element={<LowerRight />} />
           <Route path="/colors" element={<Colors />} />
+          <Route path="/profile" element={<Profile />} />
           <Route
             path="*"
             element={

@@ -15,6 +15,9 @@ const Layout = () => {
           <Link to="/colors" className="Link">
             <h1>Colors</h1>
           </Link>
+          <Link to="/profile" className="Link">
+            <h1>Profile</h1>
+          </Link>
         </nav>
       </div>
       <div className="PageContent">
