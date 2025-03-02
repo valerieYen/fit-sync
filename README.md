@@ -12,16 +12,6 @@ CSS: Styling and positioning elements
 
 JavaScript: Handling interactivity and dynamic content updates
 
-Project Structure
-
-/project-root
-│── index.html        # Main HTML file containing tab structure
-│── styles.css        # Main CSS file for styling
-│── script.js         # JavaScript file for interactivity
-└── assets/           # Directory for images or additional resources
-
-Tabs and Their Functionality
-
 Tab 1: "Text"
 
 Contains a long page of text with a scrollbar.
