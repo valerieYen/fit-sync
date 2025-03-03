@@ -57,6 +57,8 @@ body,html {
   top: 0;
   z-index: 1000;
   height: 5rem;
+  padding: 0;
+  margin: 0%;
 }
 
 .Link {
@@ -65,7 +67,12 @@ body,html {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  margin: 0rem 1rem;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.Link h1 {
+  margin: 0;
 }
 
 .PageContent {
@@ -83,8 +90,21 @@ body,html {
   display: flex;
   flex-direction: column;
   text-align: right;
+  overflow: hidden;
 }
 
 .Spacer {
   flex-grow: 1;
+}
+
+.LeftAlign {
+  text-align: left;
+}
+
+.Hello h2{
+  margin: 0;
+}
+
+.ActiveTab {
+  background-color: #747bff;
 }

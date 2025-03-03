@@ -1,12 +1,9 @@
 function LowerRight() {
     return(
-        <div>
-            <h1>-Text in Lower Right-</h1>
         <div className="LowerRight SubPage">
-            
+            <h1 className="LeftAlign">-Text in Lower Right-</h1>
             <div className="Spacer"></div>
             <p>Down Here</p>
-        </div>
         </div>
     );
 }
