@@ -12,9 +12,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "electron:dev": "cross-env NODE_ENV=development concurrently \"npm run dev\" \"electron .\"",
-    "electron:build": "npm run build && electron-builder"
+    "clean": "rimraf builds",
+    "electron:build": "npm run clean && npm run build && electron-builder"
   },
-
   "dependencies": {
     "i": "^0.3.7",
     "react": "^19.0.0",
@@ -34,36 +34,44 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "rimraf": "^6.0.1",
     "vite": "^6.2.0"
   },
   "build": {
-  "appId": "com.fitsync.app",
-  "productName": "FitSync",
-  "files": [
-    "dist/**/*",
-    "main.js",
-    "preload.js"
-  ],
-  "directories": {
-    "buildResources": "assets",
-    "output": "release"
-  },
-  "win": {
-    "target": ["nsis"],
-    "icon": "assets/icon.ico"
-  },
-  "nsis": {
-    "oneClick": false,
-    "allowToChangeInstallationDirectory": true,
-    "createDesktopShortcut": true
-  },
-  "mac": {
-    "target": ["dmg"],
-    "category": "public.app-category.health-fitness"
-  },
-  "linux": {
-    "target": ["AppImage", "deb"],
-    "category": "Utility"
+    "appId": "com.fitsync.app",
+    "productName": "FitSync",
+    "files": [
+      "dist/**/*",
+      "main.js",
+      "preload.js"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "builds"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.health-fitness"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Utility"
+    }
   }
-}
 }
