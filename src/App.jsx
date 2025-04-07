@@ -1,4 +1,4 @@
-import { Link, Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Link, Route, Routes, HashRouter } from 'react-router-dom';
 import Layout from './Layout';
 import Text from './components/Text';
 import LowerRight from './components/LowerRight'
@@ -9,7 +9,7 @@ import ToDo from './components/ToDo';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Text />} />
@@ -31,7 +31,7 @@ function App() {
           />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
