@@ -19,7 +19,7 @@ function Profile() {
             <h1>-User Profile-</h1>
             <div style={{display: "flex", flexDirection: "column", alignItems:"center"}}>
                 <button onClick={() => onPfpClick()}>
-                <img alt="Profile pic" src="public/buff_kitty.jpg" style={{width: "100px"}}></img>
+                <img alt="Profile pic" src="/buff_kitty.jpg" style={{width: "100px"}}></img>
             </button>
             <h3>Smiley J. Smile</h3>
             
