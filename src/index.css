@@ -318,6 +318,10 @@ p {
   flex-direction: column;
 }
 
+#profile h1 {
+  margin-bottom: 0;
+}
+
 #basic-info {
   display: flex;
   align-items: center;
@@ -326,7 +330,56 @@ p {
 }
 
 #profile-picture {
-  max-width: 15rem;
+  max-width: 12.5rem;
+}
+
+#detailed-info {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+#explanation-blurb {
+  text-align: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 1rem;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.info-row h2 {
+  margin: .5rem;
+  width: 10rem;
+}
+
+.info-row p {
+  margin: 1rem;
+} 
+
+.info-row input {
+  width: 25rem;
+  height: 1.5rem;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+.info-row select {
+  width: 25.5rem;
+  height: 2rem;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+.info-label {
+  padding-right: 1rem;
 }
 
 /* Start of nutrition page */

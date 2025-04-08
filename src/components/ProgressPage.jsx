@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProgressPage = () => {
   return (
-    <div id="progress" className="page" style={{ display: 'block' }}>
+    <div id="progress" className="page">
       <h1>Progress</h1>
       <h2>Current Goals</h2>
       <div></div>

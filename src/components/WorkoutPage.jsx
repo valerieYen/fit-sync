@@ -92,7 +92,7 @@ const WorkoutPage = () => {
   };
 
   return (
-    <div id="workout" className="page" style={{ display: 'block' }}>
+    <div id="workout" className="page">
       <h1>Workout</h1>
       <div className="workout-page-top-row">
         <h1>
