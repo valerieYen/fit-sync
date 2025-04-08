@@ -1,110 +1,314 @@
-body,html {
-  background-color: rgb(34, 34, 34);
-  color: antiquewhite;
-  width: 640px;
-  height: 960px;
-  margin: 0;
-}
-
-#root {
-  width: 640px;
-  height: 960px;
-  margin: 0;
-}
-
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #312C30;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg-color: #1e212b;
+  --forefront-color: white;
+  --tertiary-color: #5fb2f7;
+  --red-color: white;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #C22E2C;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Tahoma";
 }
 
-.Page {
+h1 {
+  text-align: center;
+}
+
+main {
+  width: 640px;
+  height: 960px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+button:hover {
+  cursor: pointer;
+  opacity: 75%;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+/* Navbar styling Start */
+.navbar {
+  width: 100%;
+  height: 75px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--bg-color);
+  border-top: 1px solid var(--forefront-color);
+  position: relative;
+  z-index: 10;
+}
+
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar li {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
-  width: 100%;
+  align-items: center;
 }
 
-.Navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: #C22E2C;
-  width: 640px;
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  height: 5rem;
-  padding: 0;
-  margin: 0%;
-}
-
-.Link {
+.navbar a {
+  display: block;
+  padding: 0px;
+  text-align: center;
   text-decoration: none;
-  color: #FFD157;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  margin: 0;
-  padding: 0 1rem;
+  color: var(--forefront-color);
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.Link h1 {
-  margin: 0;
+.navbar a:hover {
+  background-color: #555;
 }
 
-.PageContent {
+.navbar a.active {
+  color: var(--tertiary-color);
+}
+
+/* Navbar styling end */
+
+/* Page styling start */
+.page {
+  display: block;
+}
+
+.page-container {
   width: 100%;
-  height: 880px;
-  margin-top: 5rem;
+  height: 885px;
+  border: 1px solid var(--bg-color);
+  background-color: var(--bg-color);
+  color: white;
+  overflow: auto;
+}
+/* Page styling end */
+
+/* Workout page start */
+.workout-page-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px;
+}
+
+.finish-workout-button {
+  display: block;
+  font-size: 2rem;
+  width: 150px;
+  padding: 13px;
+  border-radius: 8px;
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--tertiary-color);
+  color: var(--bg-color);
+  font-weight: bolder;
+}
+.finish-workout-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.exercises-container {
+  margin-top: 16px;
+  height: 675px;
   overflow-y: scroll;
 }
 
-.SubPage {
-  height: 880px;
+.exercise-container {
+  border-bottom: 1px solid var(--forefront-color);
+  margin: 0 13px;
+  margin-bottom: 13px;
 }
 
-.LowerRight {
+.exercise-selection-container {
+  margin-bottom: 16px;
+}
+
+.exercise-top-row {
   display: flex;
-  flex-direction: column;
-  text-align: right;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 16px;
+  height: 50px;
+}
+.exercise-title-input {
+  margin-left: 16px;
+  border: 1px solid var(--forefront-color);
+  background: none;
+  border-radius: 8px;
+  color: var(--forefront-color);
+  font-weight: bold;
+}
+
+.remove-exercise-button {
+  border-radius: 8px;
+  background-color: var(--red-color);
+  border: 1px solid var(--red-color);
+  color: var(--bg-color);
+  width: 125px;
+  font-weight: bold;
+}
+
+.exercise-title-container {
+  display: flex;
+  flex-direction: row;
+}
+.lbs-reps-remove-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  height: 100%;
+}
+.lbs-reps-container {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+}
+.exercise-sets-container {
+  margin: 16px 16px;
+}
+.set-row {
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.set-row-half-two {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.lbs-reps-input-container {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.lbs-input,
+.reps-input {
+  width: 60px;
+  height: 3rem;
+  font-size: 2rem;
+  background: none;
+  border: 2px solid var(--forefront-color);
+  border-radius: 8px;
+  color: var(--forefront-color);
+  outline: none;
+  box-shadow: none;
+}
+
+.lbs-input:hover,
+.lbs-input:focus,
+.reps-input:hover,
+.reps-input:focus {
+  border-color: var(--tertiary-color);
+}
+
+.remove-set-button {
+  border-radius: 8px;
+  background-color: var(--forefront-color);
+  border: 2px solid var(--red-color);
+  color: var(--bg-color);
+  font-size: 1.5rem;
+  width: 125px;
+  font-weight: bold;
+}
+
+.add-set-button {
+  display: block;
+  width: 608px;
+  padding: 8px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background: none;
+  font-size: 1.5rem;
+  color: var(--tertiary-color);
+  border: 3px solid var(--tertiary-color);
+  font-weight: bolder;
+}
+
+.dropdown-panel {
   overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease;
 }
 
-.Spacer {
-  flex-grow: 1;
+.dropdown-panel.open {
+  height: auto;
 }
 
-.LeftAlign {
-  text-align: left;
+.dropdown-toggle {
+  border: none;
+  color: var(--forefront-color);
+  background: none;
+  font-size: 3rem;
 }
 
-.Hello h2{
-  margin: 0;
+#pause-timer-button {
+  display: inline-block;
+  text-align: center;
+  border-radius: 8px;
+  width: 150px;
+  background-color: var(--forefront-color);
+  border: 2px solid var(--red-color);
+  color: var(--bg-color);
+  font-size: 2rem;
+  padding: 13px;
+  font-weight: bold;
 }
 
-.ActiveTab {
-  background-color: #747bff;
+#notes-textarea {
+  width: calc(100% - 26px);
+  display: block;
+  margin: 0 auto;
+  border: 3px solid var(--forefront-color);
+  background: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-family: "SF Pro";
+  height: fit-content;
+  color: var(--forefront-color);
+  outline: none;
+  box-shadow: none;
+}
+
+#notes-textarea:hover,
+#notes-textarea:focus {
+  border: 3px solid var(--tertiary-color);
+}
+
+/* Profile Page */
+#profile {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#basic-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem;
+}
+
+#profile-picture {
+  max-width: 15rem;
 }

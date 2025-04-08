@@ -1,49 +1,95 @@
-import { Outlet, Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Outlet, NavLink } from 'react-router-dom';
+//import { useState } from 'react';
+import './index.css';
 
 const Layout = () => {
-  const [activeTab, setActiveTab] = useState("Text");
-
   return (
-    <div className="Page">
-      <div className="">
-        <nav className="Navbar">
-          <Link to="/" className={`Link ${activeTab === "Text" ? "ActiveTab" : ""}`}
-                onClick={() => setActiveTab("Text")}>
-            <h1>Text</h1>
-            <img style={{width: '30px'}} src='./text-icon.png' />
-          </Link>
-          <Link to="/lower-right" className={`Link ${activeTab === "LR" ? "ActiveTab" : ""}`}
-                onClick={() => setActiveTab("LR")}>
-            <h1>LR</h1>
-            <img style={{width: '30px'}} src='./lr-icon.png' />
-          </Link>
-          <Link to="/colors" className={`Link ${activeTab === "Colors" ? "ActiveTab" : ""}`}
-                onClick={() => setActiveTab("Colors")}>
-            <h1>Colors</h1>
-            <img style={{width: '30px'}} src='./color-icon.png' />
-          </Link>
-          <Link to="/profile" className={`Link ${activeTab === "Profile" ? "ActiveTab" : ""}`}
-                onClick={() => setActiveTab("Profile")}>
-            <h1>Profile</h1>
-            <img style={{width: '30px'}} src='./profile-icon.png' />
-          </Link>
-          <Link to="/choices" className={`Link ${activeTab === "Choices" ? "ActiveTab" : ""}`}
-                onClick={() => setActiveTab("Choices")}>
-            <h1>Choices</h1>
-            <img style={{width: '30px'}} src='./choices-icon.png' />
-          </Link>
-          <Link to="/todo" className={`Link ${activeTab === "ToDo" ? "ActiveTab" : ""}`}
-                onClick={() => setActiveTab("ToDo")}>
-            <h1>ToDo</h1>
-            <img style={{width: '30px'}} src='./todo-icon.png' />
-          </Link>
-        </nav>
-      </div>
-      <div className="PageContent">
+    <main>
+      <div className="page-container">
         <Outlet />
       </div>
-    </div>
+      
+      <nav className="navbar">
+        <ul>
+          <li>
+            <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                style={{ width: '25px' }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+              Workout
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/progress" className={({ isActive }) => isActive ? "active" : ""}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                style={{ width: '25px' }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+              Progress
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/nutrition" className={({ isActive }) => isActive ? "active" : ""}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                style={{ width: '25px' }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+              Nutrition
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/profile" className={({ isActive }) => isActive ? "active" : ""}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                style={{ width: '25px' }}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+              Profile
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </main>
   );
 };
 

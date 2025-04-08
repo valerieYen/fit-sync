@@ -1,38 +1,34 @@
-import { Link, Route, Routes, HashRouter } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
-import Text from './components/Text';
-import LowerRight from './components/LowerRight'
-import Colors from './components/Colors';
-import Profile from './components/Profile';
-import Choices from './components/Choices';
-import ToDo from './components/ToDo';
+import WorkoutPage from './components/WorkoutPage';
+import ProgressPage from './components/ProgressPage';
+import NutritionPage from './components/NutritionPage';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   return (
     <HashRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Text />} />
-          <Route path="/lower-right" element={<LowerRight />} />
-          <Route path="/colors" element={<Colors />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/choices" element={<Choices />} />
-          <Route path="/todo" element={<ToDo />} />
+          <Route index element={<WorkoutPage />} />
+          <Route path="progress" element={<ProgressPage />} />
+          <Route path="nutrition" element={<NutritionPage />} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route
             path="*"
             element={
-              <div className="">
-                <p className="">Theres nothing here!</p>
-                <Link to="/" className="">
+              <div className="page">
+                <h1>There's nothing here!</h1>
+                <button onClick={() => window.location.href = '#/'}>
                   Back to Home
-                </Link>
+                </button>
               </div>
             }
           />
         </Route>
       </Routes>
     </HashRouter>
-  )
+  );
 }
 
 export default App;
