@@ -1,10 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const NutritionPage = () => {
   const dailyGoals = { calories: 2500, protein: 150, fat: 70, carbs: 300 };
-  const [foodEntries, setFoodEntries] = useState([]);
+  const [dayIndex, setDayIndex] = useState(() => Number(localStorage.getItem('dayIndex')) || 1);
+  const [streak, setStreak] = useState(() => Number(localStorage.getItem('streak')) || 3);
+  const [foodEntries, setFoodEntries] = useState(() => {
+    const saved = localStorage.getItem(`day-${dayIndex}`);
+    return saved ? JSON.parse(saved) : [];
+  });
   const [newFood, setNewFood] = useState({ name: '', calories: '', protein: '', fat: '', carbs: '' });
-  const [streak, setStreak] = useState(3); // hardcoded Duolingo-like streak
+
+  useEffect(() => {
+    const saved = localStorage.getItem(`day-${dayIndex}`);
+    setFoodEntries(saved ? JSON.parse(saved) : []);
+  }, [dayIndex]);
 
   const addFood = () => {
     if (!newFood.name || isNaN(newFood.calories)) return;
@@ -14,6 +23,27 @@ const NutritionPage = () => {
 
   const removeFood = (id) => {
     setFoodEntries(foodEntries.filter(food => food.id !== id));
+  };
+
+  const finishDay = () => {
+    localStorage.setItem(`day-${dayIndex}`, JSON.stringify(foodEntries));
+    const newStreak = streak + 1;
+    const newDayIndex = dayIndex + 1;
+    localStorage.setItem('streak', newStreak);
+    localStorage.setItem('dayIndex', newDayIndex);
+    setStreak(newStreak);
+    setDayIndex(newDayIndex);
+    setFoodEntries([]);
+  };
+
+  const goToPreviousDay = () => {
+    if (dayIndex > 1) {
+      setDayIndex(dayIndex - 1);
+    }
+  };
+
+  const goToNextDay = () => {
+    setDayIndex(dayIndex + 1);
   };
 
   const calculateTotals = () => {
@@ -40,7 +70,13 @@ const NutritionPage = () => {
 
       <div className="workout-page-top-row">
         <h1>🔥 Streak: {streak} days</h1>
-        <button className="finish-workout-button">Finish Day</button>
+        <button className="finish-workout-button" onClick={finishDay}>Finish Day</button>
+      </div>
+
+      <div style={{ textAlign: 'center', marginBottom: '16px' }}>
+        <button onClick={goToPreviousDay}>⬅ Prev</button>
+        <strong style={{ margin: '0 16px' }}>Day: {dayIndex}</strong>
+        <button onClick={goToNextDay}>Next ➡</button>
       </div>
 
       <div className="exercises-container">
