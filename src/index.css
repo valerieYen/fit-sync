@@ -314,27 +314,28 @@ p {
 
 /* Progress page start */
 .goal-row {
-  
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    margin: 0 13px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 0 13px;
 }
 
 .workout-history {
   border: 1px solid red;
-  height: 300px;
-  overflow: scroll;
-  overflow-y: scroll;
 }
 .workout-history-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: calc(100% - 26px);
   height: 50px;
+  background: none;
+  color: var(--forefront-color);
+  border: none;
+  border-bottom: 2px solid var(--forefront-color);
+  margin-bottom: 13px;
 }
 .caret {
   font-size: 3rem;
@@ -383,18 +384,18 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: .5rem;
+  padding-left: 0.5rem;
   margin: 0;
 }
 
 .info-row h2 {
-  margin: .5rem;
+  margin: 0.5rem;
   width: 12.5rem;
 }
 
 .info-row p {
-  margin: .5rem;
-} 
+  margin: 0.5rem;
+}
 
 .info-row input {
   width: 25rem;
