@@ -35,6 +35,12 @@ p {
   font-size: 1.5rem;
 }
 
+input, select {
+  border-radius: .25rem;
+  border: none;
+  box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
 /* Navbar styling Start */
 .navbar {
   width: 100%;
@@ -131,6 +137,7 @@ p {
   color: var(--bg-color);
   font-weight: bolder;
 }
+
 .finish-workout-button:hover {
   cursor: pointer;
   opacity: 0.6;
@@ -160,6 +167,7 @@ p {
   margin: 0 16px;
   height: 50px;
 }
+
 .exercise-title-input {
   margin-left: 16px;
   border: 1px solid var(--forefront-color);
@@ -182,6 +190,7 @@ p {
   display: flex;
   flex-direction: row;
 }
+
 .lbs-reps-remove-container {
   display: flex;
   flex-direction: row;
@@ -189,6 +198,7 @@ p {
   width: 50%;
   height: 100%;
 }
+
 .lbs-reps-container {
   display: flex;
   flex-direction: row;
@@ -196,9 +206,11 @@ p {
   justify-content: space-between;
   align-items: center;
 }
+
 .exercise-sets-container {
   margin: 16px 16px;
 }
+
 .set-row {
   height: fit-content;
   display: flex;
@@ -206,18 +218,21 @@ p {
   justify-content: space-between;
   align-items: center;
 }
+
 .set-row-half-two {
   width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .lbs-reps-input-container {
   width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .lbs-input,
 .reps-input {
   width: 60px;
@@ -394,12 +409,12 @@ p {
 }
 
 .info-row p {
-  margin: 0.5rem;
-}
+  margin: .65rem;
+} 
 
 .info-row input {
   width: 25rem;
-  height: 1.5rem;
+  height: 1.75rem;
   text-align: right;
   font-size: 1.5rem;
 }
@@ -448,5 +463,19 @@ p {
 /* End of profile page */
 
 /* Start of nutrition page */
+
+.nutrition-input {
+  height: 1.75rem;
+}
+
+.ni1{
+  height: 1.5rem;
+  width: 16rem;
+}
+
+.ni2{
+  height: 1.5rem;
+  width: 10rem;
+}
 
 /* End of nutrition page */

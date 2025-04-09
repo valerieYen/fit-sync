@@ -100,11 +100,6 @@ const ProfilePage = () => {
           <input value={userData.email} onChange={e => updateProfile('email', e.target.value)} />
           <p onClick={() => handleInfoClick('email')} style={{ cursor: 'pointer' }}>ⓘ</p>
         </div>
-        <div className="info-row">
-          <h2 className="info-label">Phone:</h2>
-          <input value={userData.phone} onChange={e => updateProfile('phone', e.target.value)} />
-          <p onClick={() => handleInfoClick('phone')} style={{ cursor: 'pointer' }}>ⓘ</p>
-        </div>
       </div>
 
       {showPopUp && (

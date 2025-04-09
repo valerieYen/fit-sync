@@ -14,8 +14,7 @@ const Layout = () => {
       height: '',
       weight: '',
       goal_weight: '',
-      email: '',
-      phone: ''
+      email: ''
     };
   });
 
