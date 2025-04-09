@@ -1,7 +1,23 @@
 import { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 const NutritionPage = () => {
-  const dailyGoals = { calories: 2500, protein: 150, fat: 70, carbs: 300 };
+  const [userData] = useOutletContext();
+
+  const calculateCalorieGoal = () => {
+    const { weight, goal_weight, age, sex } = userData;
+    if (!weight || !goal_weight || !age || !sex) return 2500; // fallback default
+
+    const bmr =
+      sex === 'Male'
+        ? 10 * weight + 6.25 * 165 + 5 * age + 5
+        : 10 * weight + 6.25 * 165 + 5 * age - 161;
+
+    const multiplier = goal_weight < weight ? 0.85 : goal_weight > weight ? 1.15 : 1.0;
+    return Math.round(bmr * multiplier);
+  };
+
+  const calorieGoal = calculateCalorieGoal();
   const [dayIndex, setDayIndex] = useState(() => Number(localStorage.getItem('dayIndex')) || 1);
   const [streak, setStreak] = useState(() => Number(localStorage.getItem('streak')) || 3);
   const [foodEntries, setFoodEntries] = useState(() => {
@@ -58,10 +74,10 @@ const NutritionPage = () => {
 
   const totals = calculateTotals();
   const remaining = {
-    calories: dailyGoals.calories - totals.calories,
-    protein: dailyGoals.protein - totals.protein,
-    fat: dailyGoals.fat - totals.fat,
-    carbs: dailyGoals.carbs - totals.carbs,
+    calories: calorieGoal - totals.calories,
+    protein: 150 - totals.protein,
+    fat: 70 - totals.fat,
+    carbs: 300 - totals.carbs,
   };
 
   return (
@@ -83,7 +99,7 @@ const NutritionPage = () => {
         <div className="exercise-container">
           <div className="exercise-top-row">
             <div className="exercise-title-container">
-              <h1>Food</h1>
+              <h1>Food (Calorie Goal: {calorieGoal})</h1>
             </div>
           </div>
 
