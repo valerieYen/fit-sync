@@ -310,6 +310,37 @@ p {
 #notes-textarea:focus {
   border: 3px solid var(--tertiary-color);
 }
+/* Workout page end */
+
+/* Progress page start */
+.goal-row {
+  
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0 13px;
+}
+
+.workout-history {
+  border: 1px solid red;
+  height: 300px;
+  overflow: scroll;
+  overflow-y: scroll;
+}
+.workout-history-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+.caret {
+  font-size: 3rem;
+}
+
+/* Progress page end */
 
 /* Profile Page */
 #profile {
@@ -381,6 +412,7 @@ p {
 .info-label {
   padding-right: 1rem;
 }
+/* End of profile page */
 
 /* Start of nutrition page */
 
