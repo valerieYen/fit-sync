@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 const NutritionPage = () => {
@@ -31,6 +31,10 @@ const NutritionPage = () => {
     setFoodEntries(saved ? JSON.parse(saved) : []);
   }, [dayIndex]);
 
+  useEffect(() => {
+    localStorage.setItem(`day-${dayIndex}`, JSON.stringify(foodEntries));
+  }, [foodEntries, dayIndex]);
+
   const addFood = () => {
     if (!newFood.name || isNaN(newFood.calories)) return;
     setFoodEntries([...foodEntries, { ...newFood, id: Date.now() }]);
@@ -54,12 +58,16 @@ const NutritionPage = () => {
 
   const goToPreviousDay = () => {
     if (dayIndex > 1) {
-      setDayIndex(dayIndex - 1);
+      const newDay = dayIndex - 1;
+      setDayIndex(newDay);
+      localStorage.setItem('dayIndex', newDay);
     }
   };
 
   const goToNextDay = () => {
-    setDayIndex(dayIndex + 1);
+    const newDay = dayIndex + 1;
+    setDayIndex(newDay);
+    localStorage.setItem('dayIndex', newDay);
   };
 
   const calculateTotals = () => {
