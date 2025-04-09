@@ -368,6 +368,8 @@ p {
   display: flex;
   flex-direction: column;
   align-content: center;
+  margin-top: 0%;
+  padding-top: 0;
 }
 
 #explanation-blurb {
@@ -381,18 +383,17 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 1rem;
-  padding-bottom: 0;
-  margin-bottom: 0;
+  padding-left: .5rem;
+  margin: 0;
 }
 
 .info-row h2 {
   margin: .5rem;
-  width: 10rem;
+  width: 12.5rem;
 }
 
 .info-row p {
-  margin: 1rem;
+  margin: .5rem;
 } 
 
 .info-row input {
@@ -410,7 +411,38 @@ p {
 }
 
 .info-label {
-  padding-right: 1rem;
+  padding: 0rem 1.5rem;
+}
+
+.info-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  color: #1e212b;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  position: absolute;
+  top: 25rem;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
 }
 /* End of profile page */
 
