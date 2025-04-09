@@ -113,11 +113,11 @@ const NutritionPage = () => {
 
           <div className="exercise-sets-container">
             <div className="set-row" style={{ flexWrap: 'wrap', gap: '8px' }}>
-              <input style={{ width: '100px' }} type="text" placeholder="Name" value={newFood.name} onChange={e => setNewFood({ ...newFood, name: e.target.value })} />
-              <input style={{ width: '80px' }} type="number" placeholder="Cals" value={newFood.calories} onChange={e => setNewFood({ ...newFood, calories: e.target.value })} />
-              <input style={{ width: '80px' }} type="number" placeholder="P" value={newFood.protein} onChange={e => setNewFood({ ...newFood, protein: e.target.value })} />
-              <input style={{ width: '80px' }} type="number" placeholder="F" value={newFood.fat} onChange={e => setNewFood({ ...newFood, fat: e.target.value })} />
-              <input style={{ width: '80px' }} type="number" placeholder="C" value={newFood.carbs} onChange={e => setNewFood({ ...newFood, carbs: e.target.value })} />
+              <input className="nutrition-input ni1" type="text" placeholder="Name" value={newFood.name} onChange={e => setNewFood({ ...newFood, name: e.target.value })} />
+              <input className="nutrition-input ni1" type="number" placeholder="Cals" value={newFood.calories} onChange={e => setNewFood({ ...newFood, calories: e.target.value })} />
+              <input className="nutrition-input ni2" type="number" placeholder="Protein" value={newFood.protein} onChange={e => setNewFood({ ...newFood, protein: e.target.value })} />
+              <input className="nutrition-input ni2" type="number" placeholder="Fat" value={newFood.fat} onChange={e => setNewFood({ ...newFood, fat: e.target.value })} />
+              <input className="nutrition-input ni2" type="number" placeholder="Carbs" value={newFood.carbs} onChange={e => setNewFood({ ...newFood, carbs: e.target.value })} />
               <button className="add-set-button" onClick={addFood}>+ Add</button>
             </div>
 
