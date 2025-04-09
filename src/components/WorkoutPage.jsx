@@ -1,27 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import React from 'react';
 
-const WorkoutPage = () => {
-  const [secondsElapsed, setSecondsElapsed] = useState(0);
-  const [isPaused, setIsPaused] = useState(true);
-  const [exercises, setExercises] = useState([
-    { id: 1, title: 'Squat', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
-    { id: 2, title: 'Bench', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
-    { id: 3, title: 'Deadlift', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
-    { id: 4, title: 'Notes', isOpen: false, notes: '' }
-  ]);
-  const timerRef = useRef(null);
-
-  // Timer function
-  useEffect(() => {
-    timerRef.current = setInterval(() => {
-      if (!isPaused) {
-        setSecondsElapsed(prev => prev + 1);
-      }
-    }, 1000);
-
-    return () => clearInterval(timerRef.current);
-  }, [isPaused]);
-
+const WorkoutPage = ({ 
+  secondsElapsed, 
+  isPaused, 
+  setIsPaused,
+  exercises, 
+  setExercises,
+  resetWorkout
+}) => {
   // Format time as HH:MM:SS
   const formatTime = (secs) => {
     const hours = String(Math.floor(secs / 3600)).padStart(2, "0");
@@ -91,8 +77,14 @@ const WorkoutPage = () => {
     ));
   };
 
+  // Handle finish workout
+  const handleFinishWorkout = () => {
+    // Logic to save workout data if needed
+    resetWorkout();
+  };
+
   return (
-    <div id="workout" className="page">
+    <div id="workout" className="page" style={{ display: 'block' }}>
       <h1>Workout</h1>
       <div className="workout-page-top-row">
         <h1>
@@ -103,7 +95,9 @@ const WorkoutPage = () => {
             {isPaused ? 'Start' : 'Pause'}
           </button>
         </h1>
-        <button className="finish-workout-button">Finish</button>
+        <button className="finish-workout-button" onClick={handleFinishWorkout}>
+          Finish
+        </button>
       </div>
 
       <div className="exercises-container">

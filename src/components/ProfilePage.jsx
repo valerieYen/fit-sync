@@ -1,6 +1,13 @@
 import React from 'react';
 
-const ProfilePage = () => {
+const ProfilePage = ({ userData, setUserData }) => {
+  const updateProfile = (field, value) => {
+    setUserData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+  
   return (
     <div id="profile" className="page">
       <h1>Profile</h1>
