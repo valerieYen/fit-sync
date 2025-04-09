@@ -65,7 +65,7 @@ const NutritionPage = () => {
   };
 
   return (
-    <div id="nutrition" className="page">
+    <div id="nutrition" className="page" style={{ display: 'block' }}>
       <h1>Nutrition</h1>
 
       <div className="workout-page-top-row">

@@ -1,14 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const WorkoutPage = ({ 
-  secondsElapsed, 
-  isPaused, 
-  setIsPaused,
-  exercises, 
-  setExercises,
-  resetWorkout
-}) => {
-  // Format time as HH:MM:SS
+const WorkoutPage = () => {
+  const [secondsElapsed, setSecondsElapsed] = useState(0);
+  const [isPaused, setIsPaused] = useState(true);
+  const [exercises, setExercises] = useState([
+    { id: 1, title: 'Squat', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+    { id: 2, title: 'Bench', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+    { id: 3, title: 'Deadlift', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+    { id: 4, title: 'Notes', isOpen: false, notes: '' }
+  ]);
+
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      if (!isPaused) {
+        setSecondsElapsed(prev => prev + 1);
+      }
+    }, 1000);
+
+    return () => clearInterval(timerRef.current);
+  }, [isPaused]);
+
+  const resetWorkout = () => {
+    setSecondsElapsed(0);
+    setIsPaused(true);
+    setExercises([
+      { id: 1, title: 'Squat', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+      { id: 2, title: 'Bench', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+      { id: 3, title: 'Deadlift', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+      { id: 4, title: 'Notes', isOpen: false, notes: '' }
+    ]);
+  };
+
   const formatTime = (secs) => {
     const hours = String(Math.floor(secs / 3600)).padStart(2, "0");
     const minutes = String(Math.floor((secs % 3600) / 60)).padStart(2, "0");
@@ -16,19 +40,16 @@ const WorkoutPage = ({
     return `${hours}:${minutes}:${seconds}`;
   };
 
-  // Toggle timer pause/resume
   const togglePause = () => {
     setIsPaused(prev => !prev);
   };
 
-  // Toggle exercise dropdown
   const toggleExercise = (id) => {
-    setExercises(exercises.map(ex => 
+    setExercises(exercises.map(ex =>
       ex.id === id ? { ...ex, isOpen: !ex.isOpen } : ex
     ));
   };
 
-  // Add a set to an exercise
   const addSet = (exerciseId) => {
     setExercises(exercises.map(ex => {
       if (ex.id === exerciseId) {
@@ -42,7 +63,6 @@ const WorkoutPage = ({
     }));
   };
 
-  // Remove a set
   const removeSet = (exerciseId, setId) => {
     setExercises(exercises.map(ex => {
       if (ex.id === exerciseId) {
@@ -55,13 +75,12 @@ const WorkoutPage = ({
     }));
   };
 
-  // Update set values
   const updateSet = (exerciseId, setId, field, value) => {
     setExercises(exercises.map(ex => {
       if (ex.id === exerciseId) {
         return {
           ...ex,
-          sets: ex.sets.map(set => 
+          sets: ex.sets.map(set =>
             set.id === setId ? { ...set, [field]: value } : set
           )
         };
@@ -70,16 +89,13 @@ const WorkoutPage = ({
     }));
   };
 
-  // Update notes
   const updateNotes = (value) => {
-    setExercises(exercises.map(ex => 
+    setExercises(exercises.map(ex =>
       ex.id === 4 ? { ...ex, notes: value } : ex
     ));
   };
 
-  // Handle finish workout
   const handleFinishWorkout = () => {
-    // Logic to save workout data if needed
     resetWorkout();
   };
 
@@ -105,7 +121,7 @@ const WorkoutPage = ({
           <div key={exercise.id} className="exercise-container">
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <h1 style={{ marginRight: 'auto' }}>{exercise.title}</h1>
-              <button 
+              <button
                 className="dropdown-toggle"
                 onClick={() => toggleExercise(exercise.id)}
               >
@@ -115,7 +131,7 @@ const WorkoutPage = ({
 
             <div className={`exercise-selection-container dropdown-panel ${exercise.isOpen ? 'open' : ''}`}
                  style={{ height: exercise.isOpen ? 'auto' : '0' }}>
-              
+
               {exercise.title === 'Notes' ? (
                 <textarea
                   id="notes-textarea"
@@ -162,7 +178,7 @@ const WorkoutPage = ({
                               onChange={(e) => updateSet(exercise.id, set.id, 'reps', e.target.value)}
                             />
                           </div>
-                          <button 
+                          <button
                             className="remove-set-button"
                             onClick={() => removeSet(exercise.id, set.id)}
                           >
@@ -173,7 +189,7 @@ const WorkoutPage = ({
                     ))}
                   </div>
 
-                  <button 
+                  <button
                     className="add-set-button"
                     onClick={() => addSet(exercise.id)}
                   >
