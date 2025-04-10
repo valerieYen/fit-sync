@@ -103,7 +103,7 @@ const NutritionPage = () => {
         <button onClick={goToNextDay}>Next ➡</button>
       </div>
 
-      <div className="exercises-container">
+      <div className="nutrition-container">
         <div className="exercise-container">
           <div className="exercise-top-row">
             <div className="exercise-title-container">
@@ -118,11 +118,11 @@ const NutritionPage = () => {
               <input className="nutrition-input ni2" type="number" placeholder="Protein" value={newFood.protein} onChange={e => setNewFood({ ...newFood, protein: e.target.value })} />
               <input className="nutrition-input ni2" type="number" placeholder="Fat" value={newFood.fat} onChange={e => setNewFood({ ...newFood, fat: e.target.value })} />
               <input className="nutrition-input ni2" type="number" placeholder="Carbs" value={newFood.carbs} onChange={e => setNewFood({ ...newFood, carbs: e.target.value })} />
-              <button className="add-set-button" onClick={addFood}>+ Add</button>
+              <button className="add-food-button" onClick={addFood}>+ Add</button>
             </div>
 
             {foodEntries.map((food, index) => (
-              <div key={food.id} className="set-row" style={{ flexWrap: 'wrap', gap: '8px' }}>
+              <div key={food.id} className="food-row" style={{ flexWrap: 'wrap', gap: '8px' }}>
                 <div>{index + 1}. {food.name} - {food.calories} cal, {food.protein}p / {food.fat}f / {food.carbs}c</div>
                 <button className="remove-set-button" onClick={() => removeFood(food.id)}>Remove</button>
               </div>

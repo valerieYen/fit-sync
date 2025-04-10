@@ -41,6 +41,15 @@ input, select {
   box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
+.nav-link,
+.nav-link:visited,
+a, a:visited {
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-style: none;
+} 
+
+
 /* Navbar styling Start */
 .navbar {
   width: 100%;
@@ -462,19 +471,40 @@ input, select {
 /* End of profile page */
 
 /* Start of nutrition page */
-
 .nutrition-input {
-  height: 1.75rem;
+  height: 2rem;
+  margin: .25rem 0;
 }
 
 .ni1{
-  height: 1.5rem;
   width: 16rem;
 }
 
 .ni2{
-  height: 1.5rem;
   width: 10rem;
+}
+
+.add-food-button {
+  display: block;
+  width: 10rem;
+  padding: 8px;
+  margin: .5rem auto;
+  border-radius: 8px;
+  background: #5fb2f7;
+  font-size: 1.5rem;
+  color: #1e212b;
+  border: none;
+  font-weight: bolder;
+}
+
+.food-row {
+  font-size: 1.5rem;
+  margin: 1rem 0rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* End of nutrition page */
