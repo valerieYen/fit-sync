@@ -14,17 +14,17 @@ const ProgressPage = () => {
         <div className="goal-row">
           <h3>Squat</h3>
           <p>225lb</p>
-          <input></input>
+          <input className="goal-input"></input>
         </div>
         <div className="goal-row">
           <h3>Bench</h3>
           <p>135lb</p>
-          <input></input>
+          <input className="goal-input"></input>
         </div>
         <div className="goal-row">
           <h3>Deadlift</h3>
           <p>315lb</p>
-          <input></input>
+          <input className="goal-input"></input>
         </div>
         
       </div>
