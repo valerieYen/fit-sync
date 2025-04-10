@@ -26,6 +26,7 @@ const ProgressPage = () => {
           <p>315lb</p>
           <input></input>
         </div>
+        
       </div>
       <div></div>
       <h2>History</h2>
@@ -33,6 +34,54 @@ const ProgressPage = () => {
         <button className="workout-history-row">
 
           <p>Tuesday, April 8, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
+          <p className='caret'>›</p>
+          
+        </button>
+        <button className="workout-history-row">
+
+          <p>Monday, April 7, 2025</p>
           <p className='caret'>›</p>
           
         </button>
