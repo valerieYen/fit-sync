@@ -94,13 +94,13 @@ const NutritionPage = () => {
 
       <div className="workout-page-top-row">
         <h1>🔥 Streak: {streak} days</h1>
-        <button className="finish-workout-button" onClick={finishDay}>Finish Day</button>
+        <button className="finish-day-button" onClick={finishDay}>Finish Day</button>
       </div>
 
       <div style={{ textAlign: 'center', marginBottom: '16px' }}>
-        <button onClick={goToPreviousDay}>⬅ Prev</button>
-        <strong style={{ margin: '0 16px' }}>Day: {dayIndex}</strong>
-        <button onClick={goToNextDay}>Next ➡</button>
+        <button className="day-button" onClick={goToPreviousDay}>⬅ Prev</button>
+        <strong className="day-label"style={{ margin: '0 16px' }}>Day: {dayIndex}</strong>
+        <button className="day-button" onClick={goToNextDay}>Next ➡</button>
       </div>
 
       <div className="nutrition-container">
