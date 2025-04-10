@@ -4,7 +4,6 @@ import { useOutletContext } from 'react-router-dom';
 const NutritionPage = () => {
   const { userData } = useOutletContext(); 
 
-
   const calculateCalorieGoal = () => {
     const { weight, goal_weight, age, sex } = userData;
     if (!weight || !goal_weight || !age || !sex) return 2500; // fallback default

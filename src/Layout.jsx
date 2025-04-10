@@ -21,6 +21,8 @@ const Layout = () => {
       weight: '',
       goal_weight: '',
       email: '',
+      workout_streak: 0,
+      nutr_streak: 0
     };
 
   });
