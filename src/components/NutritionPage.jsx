@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 const NutritionPage = () => {
-  const [userData] = useOutletContext();
+  const { userData } = useOutletContext(); 
+
 
   const calculateCalorieGoal = () => {
     const { weight, goal_weight, age, sex } = userData;
