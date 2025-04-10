@@ -21,10 +21,12 @@ const Layout = () => {
       weight: '',
       goal_weight: '',
       email: '',
+      workoutHistory: [],
     };
 
   });
 
+  // Time data(seconds elapsed and whether timer is paused or not)
   const [timerData, setTimerData] = useState(() => {
     const saved = localStorage.getItem('timerData');
     return saved ? JSON.parse(saved) : {
@@ -35,6 +37,7 @@ const Layout = () => {
 
   const timerRef = useRef(null);
 
+  // Increment the timer if it is not paused
   useEffect(() => {
     timerRef.current = setInterval(() => {
       setTimerData(prev => {
@@ -50,6 +53,7 @@ const Layout = () => {
   // Whenever userData changes, update it in local storage
   useEffect(() => {
     localStorage.setItem('userData', JSON.stringify(userData));
+    console.log('Workout history:', userData.workoutHistory);
   }, [userData]);
 
   // Whenever timerData changes, update it in local storage

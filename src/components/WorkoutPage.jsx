@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 
 const WorkoutPage = () => {
   const outletContext = useOutletContext(); // Get full context array
-  const {timerData, setTimerData} = outletContext;
+  const {userData, setUserData, timerData, setTimerData} = outletContext;
 
   const [exercises, setExercises] = useState(() => {
     const saved = localStorage.getItem('exercises');
@@ -105,6 +105,41 @@ const WorkoutPage = () => {
     );
   };
 
+  // create a workout entry
+  const handleFinishWorkout = () => {
+    const squat = exercises.find(e => e.title === 'Squat')?.sets || [];
+    const bench = exercises.find(e => e.title === 'Bench')?.sets || [];
+    const deadlift = exercises.find(e => e.title === 'Deadlift')?.sets || [];
+    const notes = exercises.find(e => e.title === 'Notes')?.notes || '';
+
+    const now = new Date();
+    const date = now.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+
+    const newWorkout = { date, squat, bench, deadlift, notes };
+
+    // Save to workoutHistory
+    const updatedHistory = [...(userData.workoutHistory || []), newWorkout];
+    const updatedUserData = { ...userData, workoutHistory: updatedHistory };
+    setUserData(updatedUserData);
+    localStorage.setItem('userData', JSON.stringify(updatedUserData));
+
+    // Reset for new workout
+    setTimerData({ secondsElapsed: 0, isPaused: true });
+    setExercises([
+      { id: 1, title: 'Squat', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+      { id: 2, title: 'Bench', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+      { id: 3, title: 'Deadlift', isOpen: false, sets: [{ id: 1, lbs: '', reps: '' }], notes: '' },
+      { id: 4, title: 'Notes', isOpen: false, notes: '' }
+    ]);
+    localStorage.removeItem('exercises');
+  };
+  
+
   return (
     <div id="workout" className="page" style={{ display: 'block' }}>
       <h1>Workout</h1>
@@ -117,7 +152,7 @@ const WorkoutPage = () => {
             {timerData.isPaused ? 'Start' : 'Pause'}
           </button>
         </h1>
-        <button className="finish-workout-button" onClick={resetWorkout}>
+        <button className="finish-workout-button" onClick={handleFinishWorkout}>
           Finish
         </button>
       </div>
