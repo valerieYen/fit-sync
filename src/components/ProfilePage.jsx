@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 const ProfilePage = () => {
-  const [userData, setUserData] = useOutletContext();
+  const {userData, setUserData} = useOutletContext();
   const [showPopUp, setShowPopUp] = useState(false);
   const [popUpText, setPopUpText] = useState("");
 
