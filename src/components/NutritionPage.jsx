@@ -6,13 +6,13 @@ const NutritionPage = () => {
 
 
   const calculateCalorieGoal = () => {
-    const { weight, goal_weight, age, sex } = userData;
-    if (!weight || !goal_weight || !age || !sex) return 2500; // fallback default
+    const { weight, goal_weight, age, sex, height } = userData;
+    if (!weight || !goal_weight || !age || !sex || !height) return 2500; // fallback default
 
     const bmr =
       sex === 'Male'
-        ? 10 * weight + 6.25 * 165 + 5 * age + 5
-        : 10 * weight + 6.25 * 165 + 5 * age - 161;
+        ? 10 * (weight * 0.453592) + 6.25 * height + 5 * age + 5
+        : 10 * (weight * 0.453592) + 6.25 * height + 5 * age - 161;
 
     const multiplier = goal_weight < weight ? 0.85 : goal_weight > weight ? 1.15 : 1.0;
     return Math.round(bmr * multiplier);
