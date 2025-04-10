@@ -82,17 +82,17 @@ const ProfilePage = () => {
         </div>
         <div className="info-row">
           <h2 className="info-label">Height:</h2>
-          <input value={userData.height} onChange={e => updateProfile('height', e.target.value)} />
+          <input value={userData.height} placeholder="cms " onChange={e => updateProfile('height', e.target.value)} />
           <p onClick={() => handleInfoClick('height')} style={{ cursor: 'pointer' }}>ⓘ</p>
         </div>
         <div className="info-row">
           <h2 className="info-label">Weight:</h2>
-          <input type="number" value={userData.weight} onChange={e => updateProfile('weight', Number(e.target.value))} />
+          <input type="number" value={userData.weight} placeholder="lbs" onChange={e => updateProfile('weight', Number(e.target.value))} />
           <p onClick={() => handleInfoClick('weight')} style={{ cursor: 'pointer' }}>ⓘ</p>
         </div>
         <div className="info-row">
           <h2 className="info-label">Goal Weight:</h2>
-          <input type="number" value={userData.goal_weight} onChange={e => updateProfile('goal_weight', Number(e.target.value))} />
+          <input type="number" value={userData.goal_weight} placeholder="lbs" onChange={e => updateProfile('goal_weight', Number(e.target.value))} />
           <p onClick={() => handleInfoClick('goal_weight')} style={{ cursor: 'pointer' }}>ⓘ</p>
         </div>
         <div className="info-row">
